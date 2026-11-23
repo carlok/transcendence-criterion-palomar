@@ -8,11 +8,11 @@ home of the proofs.
 ## Results
 
 - `TranscendenceCriterion.transcendence_criterion`: **Gel'fond's transcendence criterion**
-  (Waldschmidt 1971). Let `σ₂ ≤ σ₁` be increasing functions tending to infinity with `σᵢ(x + 1) ≤
-  aᵢ σᵢ(x)`. If for every large `N` there is a non-zero integer polynomial `P_N` of degree at
-  most `σ₂(N)` and height at most `exp σ₁(N)` with `|P_N(α)| < exp(-C σ₁(N) σ₂(N))`, where `C =
-  max(10 + ε, (4 + ε) a₁ a₂)`, then `α` is algebraic. Source: Waldschmidt 1971 (Gel'fond's
-  criterion).
+  (Waldschmidt 1971). Let `σ₁` and `σ₂` be strictly increasing real functions tending to infinity
+  with `σ₂(x) ≤ σ₁(x)` and `σᵢ(x + 1) ≤ aᵢ σᵢ(x)` for `x > 0`. If for every large `N` there is a
+  non-zero integer polynomial `P_N` of degree at most `σ₂(N)` and height at most `exp σ₁(N)` with
+  `|P_N(α)| < exp(-C σ₁(N) σ₂(N))`, where `C = max(10 + ε, (4 + ε) a₁ a₂)`, then `α` is algebraic.
+  Source: Waldschmidt 1971 (Gel'fond's criterion).
 
 ## Layout
 

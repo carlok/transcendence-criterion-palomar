@@ -3,9 +3,9 @@
 version: v0.4
 project:
   name: Gel'fond's transcendence criterion in Waldschmidt's 1971 form
-  description: Gel'fond's transcendence criterion (Waldschmidt 1971). Let σ₂ ≤ σ₁ be increasing functions
-    tending to infinity with σᵢ(x + 1) ≤ aᵢ σᵢ(x). If for every large N there is a non-zero integer
-    polynomial P_N of degree at most σ₂(N) and height at most exp σ₁(N) with |P_N(α)| < exp(-C σ₁(N)
+  description: Gel'fond's transcendence criterion (Waldschmidt 1971). Let σ₁ and σ₂ be strictly
+    increasing real functions tending to infinity with σ₂(x) ≤ σ₁(x) and σᵢ(x + 1) ≤ aᵢ σᵢ(x) for
+    x > 0. If for every large N there is a non-zero integer polynomial P_N of degree at most σ₂(N) and height at most exp σ₁(N) with |P_N(α)| < exp(-C σ₁(N)
     σ₂(N)), where C = max(10 + ε, (4 + ε) a₁ a₂), then α is algebraic. This repository is a self-contained
     extract of this theorem from the library github.com/carlok/diaz-modulus-lean, which is the canonical
     home of the proofs.
@@ -14,6 +14,10 @@ project:
   license: Apache-2.0
   responsible_maintainers:
   - Carlo Perassi
+repository:
+  substantive_formalization:
+    id: https://github.com/carlok/diaz-modulus-lean
+    revision: 59d5a598c2927b4100442a39f84c6841ebc5afa6
 classification:
   arxiv:
   - math.NT
@@ -102,7 +106,9 @@ automation:
     by a language model: the proofs are checked by Lean''s kernel at the pinned toolchain, and the
     axioms of the compared theorems are audited in CI.'
 fidelity:
-  divergences: 'None known. Each Challenge statement is written with Mathlib''s notions only. Heights
+  divergences: 'σ₁ and σ₂ are assumed strictly increasing (StrictMono), so nondecreasing functions
+    with plateaus are not covered; the comparison σ₂ ≤ σ₁ and the growth bounds are assumed for
+    x > 0 only. Each Challenge statement is written with Mathlib''s notions only. Heights
     are absolute values of coefficients: |((P N).coeff i : ℝ)| ≤ exp (σ₁ N) for every i. hσ₁t, hσ₂t
     are Tendsto σᵢ atTop atTop; hgrowth₁, hgrowth₂ are the growth bounds for x > 0. hP_small is the
     smallness of ‖aeval α (P N)‖ for every N > N₀; the conclusion is IsAlgebraic ℚ α. The compared
