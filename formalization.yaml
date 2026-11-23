@@ -1,0 +1,129 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+# formalization.yaml v0.4
+version: v0.4
+project:
+  name: Gel'fond's transcendence criterion in Waldschmidt's 1971 form
+  description: Gel'fond's transcendence criterion (Waldschmidt 1971). Let σ₂ ≤ σ₁ be increasing functions
+    tending to infinity with σᵢ(x + 1) ≤ aᵢ σᵢ(x). If for every large N there is a non-zero integer
+    polynomial P_N of degree at most σ₂(N) and height at most exp σ₁(N) with |P_N(α)| < exp(-C σ₁(N)
+    σ₂(N)), where C = max(10 + ε, (4 + ε) a₁ a₂), then α is algebraic. This repository is a self-contained
+    extract of this theorem from the library github.com/carlok/diaz-modulus-lean, which is the canonical
+    home of the proofs.
+  authors:
+  - Carlo Perassi
+  license: Apache-2.0
+  responsible_maintainers:
+  - Carlo Perassi
+classification:
+  arxiv:
+  - math.NT
+  - cs.LO
+  msc2020:
+  - 11J81
+  - 11J82
+  - 68V20
+sources:
+- title: Indépendance algébrique des valeurs de la fonction exponentielle
+  authors:
+  - Michel Waldschmidt
+  type: paper
+  location: Bulletin de la Société Mathématique de France 99 (1971), 285–304
+  relationship: formalizes
+  note: Gel'fond's criterion in the 1971 form. The constants of the Lean statement, C = max(10 + ε,
+    (4 + ε) a₁ a₂), are the ones the formal proof reaches and may differ from the printed ones; the
+    statement is the criterion with these explicit constants.
+  license: unknown
+  author_endorsement: n/a
+related_formalizations:
+- id: https://github.com/carlok/diaz-modulus-lean
+  relationship: other
+  note: The canonical home of these proofs, by the same author, and of a wider library on Diaz's conjecture.
+    This repository copies the import closure of the compared theorems (8 modules, at commit 465147a3ec8bec43ad0046c1f3ccdfc41afc88cf)
+    with only the changes the Lean module system needs, so that they can be checked on their own.
+    The module paths and namespaces are those of the library. Corrections are made there first.
+- id: https://palomar-registry.org/entry?id=PALOMAR-2026-11-22-000020&version=1
+  relationship: other
+  note: The six exponentials theorem from the same library, registered separately by the same author
+    on 2026-11-22. It is not compared again here.
+status:
+  scope: 'Formalized and compared: TranscendenceCriterion.transcendence_criterion (Waldschmidt 1971
+    (Gel''fond''s criterion)). Not formalized: Sharper constants; criteria for algebraic independence.'
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+  main_results:
+  - declaration: TranscendenceCriterion.transcendence_criterion
+    file: Solution.lean
+    sorry_count: 0
+    axioms:
+    - propext
+    - Classical.choice
+    - Quot.sound
+  - declaration: Diaz.transcendence_criterion
+    file: Diaz/Mirror/transcendence_criterion.lean
+    sorry_count: 0
+    axioms:
+    - propext
+    - Classical.choice
+    - Quot.sound
+automation:
+  methods:
+  - method: agent
+    models:
+    - Claude (Anthropic); the model version was not recorded per proof
+    framework: Claude Code
+    tool_setup: Claude agents (Anthropic) wrote the Lean statements and proofs under Carlo Perassi's
+      direction, one statement at a time, and submitted them to the Prove2Me platform (https://prove2.me),
+      which checked and accepted them. They were then mirrored into diaz-modulus-lean. The proofs
+      use ordinary Mathlib tactics and terms; there is no native_decide.
+    cost:
+      wall_time: not tracked
+      spend_usd: not tracked
+      hardware: local machine
+    prompting_notes: not recorded
+  - method: agent
+    models:
+    - Claude Opus 5.5
+    framework: Claude Code
+    tool_setup: 'A Claude agent made this extract under Carlo Perassi''s direction: it copied the
+      8 modules of the import closure from diaz-modulus-lean, made the module-system changes, and
+      wrote Challenge.lean, Solution.lean, this file, the README and the CI workflow.'
+    cost:
+      wall_time: not tracked
+      spend_usd: not tracked
+      hardware: cloud workspace
+    prompting_notes: not recorded
+  spend_usd: not tracked
+  notes: 'The Lean code and the texts in this repository were written by Claude agents (Anthropic)
+    under the direction of Carlo Perassi, who is responsible for them. No claim rests on an assertion
+    by a language model: the proofs are checked by Lean''s kernel at the pinned toolchain, and the
+    axioms of the compared theorems are audited in CI.'
+fidelity:
+  divergences: 'None known. Each Challenge statement is written with Mathlib''s notions only. Heights
+    are absolute values of coefficients: |((P N).coeff i : ℝ)| ≤ exp (σ₁ N) for every i. hσ₁t, hσ₂t
+    are Tendsto σᵢ atTop atTop; hgrowth₁, hgrowth₂ are the growth bounds for x > 0. hP_small is the
+    smallness of ‖aeval α (P N)‖ for every N > N₀; the conclusion is IsAlgebraic ℚ α. The compared
+    theorems live in the namespace TranscendenceCriterion and the library theorems keep their library
+    names; the statements are the same up to unfolding the library''s abbreviations.'
+review:
+  status: machine-checked; no human expert review of the Lean
+  reviewers: []
+  notes: 'Checks made: the Prove2Me platform checked and accepted the proofs when they were first
+    submitted, and diaz-modulus-lean builds them in CI with leanprover/lean4:v4.36.0 and Mathlib v4.36.0.
+    This repository''s CI builds the extract, audits the axioms with #print axioms, and runs the toolchain''s
+    lake comparator. No mathematician has reviewed the Lean code, and the Challenge statements have
+    not been reviewed against the sources by anyone independent of their authors.'
+alignment:
+  namespace: TranscendenceCriterion
+  statements:
+  - source: Waldschmidt 1971 (Gel'fond's criterion)
+    lean: TranscendenceCriterion.transcendence_criterion
+    module: Challenge
+    status: proved
+    note: Proved by the library theorem Diaz.transcendence_criterion.
+acknowledgements: 'The Mathlib community, for Lean 4 and Mathlib; the authors of Mathlib pull request
+  #28013 (Lindemann–Weierstrass), whose code is ported in the library; and the Prove2Me platform,
+  where the proofs were first submitted and checked.'

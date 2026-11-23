@@ -1,0 +1,9 @@
+# Lean build artefacts
+/.lake/
+*.olean
+*.ilean
+
+# Palomar Comparator tool cache (scripts/verify-comparator.sh)
+/.cache/
+
+.DS_Store
