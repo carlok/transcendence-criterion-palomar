@@ -5,7 +5,7 @@ Ported mechanically from the accepted submission archived as
 `archive/prove2me/Transcendence.norm_resultant_le_max_norm_eval__526d9b69.lean`. Statement and proof are the platform's; only
 imports, namespaces and the theorem's name were rewritten.
 -/
--- Origin: `Diaz/Mirror/norm_resultant_le_max_norm_eval.lean` in https://github.com/carlok/diaz-modulus-lean at 465147a3ec8b
+-- Origin: `Diaz/Mirror/norm_resultant_le_max_norm_eval.lean` in https://github.com/carlok/diaz-modulus-lean at 59d5a598c292
 -- (Apache-2.0), unchanged except for what the Lean module system needs.
 module
 

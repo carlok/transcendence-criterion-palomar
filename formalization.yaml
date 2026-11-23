@@ -38,7 +38,7 @@ related_formalizations:
 - id: https://github.com/carlok/diaz-modulus-lean
   relationship: other
   note: The canonical home of these proofs, by the same author, and of a wider library on Diaz's conjecture.
-    This repository copies the import closure of the compared theorems (8 modules, at commit 465147a3ec8bec43ad0046c1f3ccdfc41afc88cf)
+    This repository copies the import closure of the compared theorems (8 modules, at commit 59d5a598c2927b4100442a39f84c6841ebc5afa6)
     with only the changes the Lean module system needs, so that they can be checked on their own.
     The module paths and namespaces are those of the library. Corrections are made there first.
 - id: https://palomar-registry.org/entry?id=PALOMAR-2026-11-22-000020&version=1
@@ -112,7 +112,7 @@ review:
   status: machine-checked; no human expert review of the Lean
   reviewers: []
   notes: 'Checks made: the Prove2Me platform checked and accepted the proofs when they were first
-    submitted, and diaz-modulus-lean builds them in CI with leanprover/lean4:v4.36.0 and Mathlib v4.36.0.
+    submitted, and diaz-modulus-lean builds them in CI with leanprover/lean4:v4.35.0 and Mathlib v4.35.0.
     This repository''s CI builds the extract, audits the axioms with #print axioms, and runs the toolchain''s
     lake comparator. No mathematician has reviewed the Lean code, and the Challenge statements have
     not been reviewed against the sources by anyone independent of their authors.'

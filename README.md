@@ -19,7 +19,7 @@ home of the proofs.
 - `Challenge.lean`: the statements, with deliberate `sorry`, importing Mathlib only.
 - `Solution.lean`: the same statements, proved by the library theorems.
 - `Diaz/`: the 8 library modules the proofs need, copied from diaz-modulus-lean at
-  `465147a3ec8b` and changed only for the Lean module system (`module`, `public import`,
+  `59d5a598c292` and changed only for the Lean module system (`module`, `public import`,
   `@[expose] public section`). Paths and namespaces are the library's.
 - `comparator.json`, `formalization.yaml`: the Palomar submission metadata.
 
@@ -29,7 +29,7 @@ home of the proofs.
 lake exe cache get && lake build
 ```
 
-Lean 4.36.0, Mathlib v4.36.0. `scripts/verify-comparator.sh` runs the toolchain's
+Lean 4.35.0, Mathlib v4.35.0. `scripts/verify-comparator.sh` runs the toolchain's
 `lake comparator` the way Palomar does.
 
 ## Related
